@@ -73,12 +73,11 @@ public class FieldTimePicker extends FormLayout implements OnValueChangedListene
       AppCompatActivity activity = (AppCompatActivity) this.getContext();
       DialogTimePicker.show(activity.getSupportFragmentManager(), this.time, this.dialogBackgroundColor, this);
     }
-
   }
 
   public void setTime(String value) {
     String[] parts = value.split(":");
-    this.setTime(Integer.valueOf(parts[0]), Integer.valueOf(parts[1]));
+    this.setTime(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
   }
 
   public void setTime(int hour, int minute) {

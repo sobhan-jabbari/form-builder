@@ -9,7 +9,7 @@ version = rootProject.appVersionName
 android {
     compileSdkVersion 31
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 30
         vectorDrawables.useSupportLibrary = true
         versionCode appVersionCode
@@ -37,6 +37,7 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -95,11 +96,11 @@ dependencies {
     implementation 'androidx.fragment:fragment:1.4.0'
     implementation 'androidx.preference:preference:1.1.1'
 
-    implementation 'com.google.zxing:core:3.3.2'
+    // implementation 'com.google.zxing:core:3.4.1'
 
-    implementation('com.journeyapps:zxing-android-embedded:3.6.0') {
-        transitive = false
-    }
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
     implementation('com.theartofdev.edmodo:android-image-cropper:2.8.0') {
         transitive = false
     }
