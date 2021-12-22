@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <declare-styleable name="FormLayout">
+    <attr name="isRequired" format="boolean|reference" />
+    <attr name="formTint" format="color|reference" />
+    <attr name="dialogBackgroundColor" format="color|reference" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldTextInput">
+    <attr name="android:hint" />
+    <attr name="android:text" />
+    <attr name="android:textColor" />
+    <attr name="android:imeOptions" />
+    <attr name="android:maxLength" />
+    <attr name="android:background" />
+    <attr name="formTint" />
+    <attr name="srcCompat" />
+    <attr name="fieldInputType">
+      <enum name="text" value="0" />
+      <enum name="textPassword" value="1" />
+      <enum name="numberPassword" value="2" />
+      <enum name="email" value="3" />
+      <enum name="phone" value="4" />
+      <enum name="number" value="5" />
+      <enum name="textMultiLine" value="6" />
+      <enum name="mobile" value="7" />
+      <enum name="numberPure" value="8" />
+    </attr>
+  </declare-styleable>
+
+  <declare-styleable name="FieldSpinner">
+    <attr name="android:entries" />
+    <attr name="sp_values" format="reference" />
+    <attr name="sp_title" format="string|reference" />
+    <attr name="formTint" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldCompound">
+    <attr name="android:hint" />
+    <attr name="android:checked" />
+    <attr name="formTint" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldNumberPicker">
+    <attr name="android:min" />
+    <attr name="android:max" />
+    <attr name="formTint" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldDatePicker">
+    <attr name="android:min" />
+    <attr name="android:max" />
+    <attr name="android:hint" />
+    <attr name="srcCompat" />
+    <attr name="formTint" />
+    <attr name="dialogBackgroundColor" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldTimePicker">
+    <attr name="android:min" />
+    <attr name="android:max" />
+    <attr name="android:hint" />
+    <attr name="srcCompat" />
+    <attr name="formTint" />
+    <attr name="dialogBackgroundColor" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldImagePicker">
+    <attr name="minSize" format="integer" />
+    <attr name="maxSize" format="integer" />
+    <attr name="android:hint" />
+    <attr name="formTint" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldFilePicker">
+    <attr name="android:hint" />
+    <attr name="formTint" />
+  </declare-styleable>
+
+  <declare-styleable name="FieldBarcodePicker">
+    <attr name="android:min" />
+    <attr name="android:max" />
+    <attr name="android:hint" />
+    <attr name="formTint" />
+  </declare-styleable>
+
+
+</resources>

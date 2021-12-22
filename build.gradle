@@ -1,0 +1,83 @@
+apply plugin: 'com.android.library'
+
+ext {
+    appName = 'form-builder'
+    appVersionCode = 1125
+    appVersionName = '1.1.25'
+}
+
+android {
+    // compileSdkVersion 30
+    defaultConfig {
+        minSdkVersion 17
+        // targetSdkVersion 30
+        vectorDrawables.useSupportLibrary = true
+        versionCode appVersionCode
+        versionName appVersionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            // if (outputFile != null && outputFileName.endsWith('.aar')) {
+            if (outputFile != null) {
+                // outputFileName = "${appName}-${version}.aar"
+                output.outputFileName = "${appName}-${variant.name}-${appVersionName}.aar"
+            }
+        }
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.fragment:fragment:1.4.0'
+    implementation 'androidx.preference:preference:1.1.1'
+
+
+    implementation 'com.google.zxing:core:3.3.2'
+
+
+    implementation('com.journeyapps:zxing-android-embedded:3.6.0') {
+        transitive = false
+    }
+    implementation('com.theartofdev.edmodo:android-image-cropper:2.8.0') {
+        transitive = false
+    }
+
+    api 'com.github.sobhan-jabbari:number-picker:1.1.25'
+    api 'com.github.sobhan-jabbari:basic:1.1.35'
+    api 'com.github.sobhan-jabbari:jcalendar:1.2.4'
+    api 'com.github.sobhan-jabbari:gviews:1.1.25'
+}
+
+// apply from: 'publish.gradle'
+
+// ./gradlew :form:clean :form:build :form:bintrayUpload

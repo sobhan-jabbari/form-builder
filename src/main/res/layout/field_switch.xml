@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/parent"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="?selectableItemBackground"
+  android:gravity="center_vertical"
+  android:layoutDirection="ltr"
+  android:orientation="horizontal"
+  android:padding="8dp"
+  tools:ignore="RtlHardcoded">
+
+  <androidx.appcompat.widget.SwitchCompat
+    android:id="@+id/compound_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"/>
+
+  <TextView
+    android:id="@+id/txt_title"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right|center_vertical"
+    android:layout_weight="1"
+    android:gravity="right|center_vertical"
+    android:padding="4dp"
+    android:textColor="@color/titleColor"
+    android:textSize="14sp"
+    tools:text="title"
+    />
+
+
+</LinearLayout>

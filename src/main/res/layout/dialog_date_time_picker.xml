@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/parent"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             app:layout_behavior="@string/bottom_sheet_behavior"
+             tools:ignore="RtlHardcoded">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:layoutDirection="ltr"
+    android:orientation="vertical"
+    tools:ignore="RtlHardcoded">
+
+    <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="72dp"
+      android:background="#279683">
+
+      <TextView
+        android:id="@+id/txt_dialog_date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="4dp"
+        android:textColor="@color/textColorLight"
+        android:textSize="19sp"
+        app:fontFamily="@font/sans_regular_fd"
+        />
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fillViewport="true">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="60dp">
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:gravity="top|center_horizontal">
+
+          <ir.afraapps.view.numberpicker.NumberPicker
+            android:id="@+id/nmbr_count_down_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            app:np_dividerColor="#aaaaaaaa"
+            app:np_dividerThickness="1dp"
+            app:np_textSize="@dimen/font_size_large"/>
+
+          <ir.afraapps.view.numberpicker.NumberPicker
+            android:id="@+id/nmbr_count_down_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            app:np_dividerColor="#aaaaaaaa"
+            app:np_dividerThickness="1dp"
+            app:np_textSize="@dimen/font_size_large"/>
+
+          <ir.afraapps.view.numberpicker.NumberPicker
+            android:id="@+id/nmbr_count_down_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:np_dividerColor="#aaaaaaaa"
+            app:np_dividerThickness="1dp"
+            app:np_textSize="@dimen/font_size_large"/>
+        </LinearLayout>
+
+        <TimePicker
+          android:id="@+id/dialog_time_picker"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="8dp"
+          android:timePickerMode="spinner"
+          tools:targetApi="lollipop"/>
+
+      </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical">
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@color/dividerColor"/>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="52dp"
+      android:divider="@drawable/divider_v_dark"
+      android:dividerPadding="14dp"
+      android:gravity="right"
+      android:showDividers="middle"
+      >
+
+      <TextView
+        android:id="@+id/txt_dialog_date_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:minWidth="72dp"
+        android:padding="5dp"
+        android:text="@string/cancel"
+        app:fontFamily="@font/sans_medium_fd"
+        />
+
+      <TextView
+        android:id="@+id/txt_dialog_date_done"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:minWidth="72dp"
+        android:padding="5dp"
+        android:text="@string/field_select_label"
+        app:fontFamily="@font/sans_medium_fd"
+        />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+
+</FrameLayout>
