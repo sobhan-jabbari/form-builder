@@ -1,0 +1,31 @@
+<resources>
+  <string name="app_name">Form</string>
+
+  <string name="field_barcode_picker_title">بارکد</string>
+  <string name="field_date_picker_title">انتخاب کنید</string>
+  <string name="field_file_picker_title">درج فایل</string>
+  <string name="field_image_picker_title">درج تصویر</string>
+  <string name="field_invalid_required">پر کردن این فیلد لازم است</string>
+  <string name="field_number_invalid_max">عدد وارد شده نمی‌تواند بیشتر از %s باشد</string>
+  <string name="field_number_invalid_min">عدد وارد شده نمی‌تواند کمتر از %s باشد</string>
+  <string name="field_number_invalid_mobile">لطفا یک شماره همراه صحیح وارد کنید</string>
+  <string name="field_number_invalid_phone">لطفا یک شماره تلفن صحیح وارد کنید</string>
+  <string name="field_picker_barcode_invalid_required">بارکد درج نشده است</string>
+  <string name="field_picker_date_invalid_required">انتخاب تاریخ لازم است</string>
+  <string name="field_picker_file_invalid_required">فایلی ضمیمه نشده است</string>
+  <string name="field_picker_image_invalid_required">تصویری ضمیمه نشده است</string>
+  <string name="field_picker_time_invalid_required">انتخاب زمان لازم است</string>
+  <string name="field_select_label">انتخاب</string>
+  <string name="field_spinner_invalid_required">گزینه‌ای انتخاب نشده است</string>
+  <string name="field_spinner_title">انتخاب کنید</string>
+  <string name="field_text_invalid_mail">لطفا یک ایمیل صحیح وارد کنید</string>
+  <string name="field_text_invalid_max">حداقل می‌تواند %s کاراکتر باشد</string>
+  <string name="field_text_invalid_min">حداقل باید %s کاراکتر باشد</string>
+  <string name="field_time_picker_title">انتخاب کنید</string>
+
+  <string name="gender_female_label">زن</string>
+  <string name="gender_label">جنسیت</string>
+  <string name="gender_male_label">مرد</string>
+  <string name="gender_unknown_label">نامشخص</string>
+
+</resources>

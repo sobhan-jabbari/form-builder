@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:gravity="right|center_vertical"
+  android:orientation="vertical"
+  tools:ignore="RtlHardcoded">
+
+  <TextView
+    android:id="@+id/txt_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:padding="4dp"
+    android:text="@string/gender_label"
+    android:textColor="?colorAccent"
+    android:textSize="12sp"
+    />
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp"
+    android:background="@drawable/bg_input_normal"
+    android:gravity="right|center_vertical"
+    android:minHeight="56dp"
+    >
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:layoutDirection="ltr"
+      android:orientation="horizontal"
+      android:padding="8dp">
+
+      <LinearLayout
+        android:id="@+id/lytFemale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:background="@drawable/bg_selector_round"
+        android:gravity="center"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp">
+
+        <TextView
+          style="@style/TextViewAppearance.Subtitle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="2dp"
+          android:text="@string/gender_female_label"
+          android:textColor="@color/text_color_state"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+          android:id="@+id/imgFemale"
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:alpha="0.8"
+          android:padding="2dp"
+          app:srcCompat="@drawable/ic_vector_female"
+          app:tint="@color/text_color_state"/>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/lytMale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:background="@drawable/bg_selector_round"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp">
+
+        <TextView
+          style="@style/TextViewAppearance.Subtitle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="2dp"
+          android:text="@string/gender_male_label"
+          android:textColor="@color/text_color_state"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:alpha="0.8"
+          android:padding="2dp"
+          app:srcCompat="@drawable/ic_vector_male"
+          app:tint="@color/text_color_state"/>
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/lytUnknown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:background="@drawable/bg_selector_round"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp">
+
+        <TextView
+          style="@style/TextViewAppearance.Subtitle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="2dp"
+          android:layout_marginTop="2dp"
+          android:padding="2dp"
+          android:text="@string/gender_unknown_label"
+          android:textColor="@color/text_color_state"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:alpha="0.8"
+          android:padding="2dp"
+          app:srcCompat="@drawable/ic_vector_gender_unknown"
+          app:tint="@color/text_color_state"/>
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </FrameLayout>
+
+
+</LinearLayout>
+

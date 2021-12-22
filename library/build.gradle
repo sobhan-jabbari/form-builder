@@ -1,0 +1,111 @@
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+
+group = 'ir.afraapps'
+version = rootProject.appVersionName
+
+android {
+    compileSdkVersion 31
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 30
+        vectorDrawables.useSupportLibrary = true
+        versionCode appVersionCode
+        versionName appVersionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+
+        debug {
+            minifyEnabled false
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = project.group
+                artifactId = project.name
+                //  version = '1.0'
+
+                pom {
+                    name = project.name
+                    description = 'A form builder for android'
+                    url = "https://github.com/sobhan-jabbari/${project.name}"
+                    /*properties = [
+                            myProp: "value",
+                            "prop.with.dots": "anotherValue"
+                    ]*/
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'sobhan-jabbari'
+                            name = 'Ali Jabbari'
+                            email = 'sobhan.jabbari@gmail.com'
+                        }
+                    }
+                    scm {
+                        connection = "scm:git:github.com/sobhan-jabbari/${project.name}.git"
+                        // developerConnection = 'scm:git:ssh://example.com/my-library.git'
+                        url = "https://github.com/sobhan-jabbari/${project.name}"
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.fragment:fragment:1.4.0'
+    implementation 'androidx.preference:preference:1.1.1'
+
+    implementation 'com.google.zxing:core:3.3.2'
+
+    implementation('com.journeyapps:zxing-android-embedded:3.6.0') {
+        transitive = false
+    }
+    implementation('com.theartofdev.edmodo:android-image-cropper:2.8.0') {
+        transitive = false
+    }
+
+    api 'com.github.sobhan-jabbari:basic:1.1.36'
+    api 'com.github.sobhan-jabbari:jcalendar:1.2.7'
+    api 'com.github.sobhan-jabbari:gviews:1.1.26'
+    api 'com.github.sobhan-jabbari:number-picker:1.1.26'
+}

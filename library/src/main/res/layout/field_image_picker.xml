@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:gravity="right|center_vertical"
+  android:layoutDirection="ltr"
+  android:orientation="vertical"
+  tools:ignore="RtlHardcoded">
+
+  <TextView
+    android:id="@+id/txt_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:padding="4dp"
+    android:text="@string/field_image_picker_title"
+    android:textColor="?colorAccent"
+    android:textSize="12sp"
+    />
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right|center_vertical"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    >
+
+    <FrameLayout
+      android:id="@+id/parent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="right"
+      android:background="@drawable/bg_image_picker_selector">
+
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_vector_add_photo"/>
+
+      <ir.afraapps.gviews.CircularImageView
+        android:id="@+id/imgPic"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:civ_border_color="@android:color/transparent"
+        app:civ_border_width="0dp"
+        app:civ_color="@android:color/transparent"
+        app:civ_shadow="false"/>
+
+    </FrameLayout>
+
+
+  </FrameLayout>
+
+
+  <TextView
+    android:id="@+id/txt_error"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="left"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:padding="2dp"
+    android:textColor="@color/errorColor"
+    android:textSize="12sp"/>
+
+</LinearLayout>
+

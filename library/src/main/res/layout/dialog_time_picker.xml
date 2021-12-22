@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/parent"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:layoutDirection="ltr"
+              android:orientation="vertical"
+              app:layout_behavior="@string/bottom_sheet_behavior"
+              tools:ignore="RtlHardcoded">
+
+  <TimePicker
+    android:id="@+id/dialog_time_picker"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="24dp"
+    android:timePickerMode="clock"
+    tools:targetApi="lollipop"/>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:divider="@drawable/divider_v_dark"
+    android:dividerPadding="14dp"
+    android:gravity="right"
+    android:showDividers="middle">
+
+    <TextView
+      android:id="@+id/txt_dialog_time_cancel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="?android:attr/selectableItemBackground"
+      android:gravity="center"
+      android:minWidth="92dp"
+      android:minHeight="52dp"
+      android:padding="5dp"
+      android:text="@string/cancel"
+      app:fontFamily="@font/sans_medium_fd"/>
+
+    <TextView
+      android:id="@+id/txt_dialog_time_done"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="?android:attr/selectableItemBackground"
+      android:gravity="center"
+      android:minWidth="92dp"
+      android:minHeight="52dp"
+      android:padding="5dp"
+      android:text="@string/field_select_label"
+      app:fontFamily="@font/sans_medium_fd"/>
+
+  </LinearLayout>
+
+</LinearLayout>
