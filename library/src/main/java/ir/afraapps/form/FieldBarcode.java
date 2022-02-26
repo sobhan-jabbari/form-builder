@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.journeyapps.barcodescanner.ScanOptions;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import ir.afraapps.basic.helper.UTypeface;
@@ -46,19 +44,12 @@ public class FieldBarcode extends FormLayout {
     this.txtTitle = this.findViewById(R.id.txt_title);
     this.txtError = this.findViewById(R.id.txt_error);
     this.edtBarcode = this.findViewById(R.id.edt_barcode);
-    this.findViewById(R.id.img_barcode).setOnClickListener((v) -> this.prepareBarcodePicker());
+    this.findViewById(R.id.img_barcode).setOnClickListener((v) -> this.pickBarcode());
   }
 
-  private void prepareBarcodePicker() {
+  private void pickBarcode() {
     if (barcodePickListener != null) {
-      ScanOptions options = new ScanOptions();
-      options.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES);
-      options.setPrompt("");
-      // options.setCameraId(0);
-      options.setBeepEnabled(false);
-      // options.setBarcodeImageEnabled(true);
-      options.setOrientationLocked(false);
-      barcodePickListener.pickBarcode(options);
+      barcodePickListener.pickBarcode();
     }
   }
 
@@ -156,7 +147,7 @@ public class FieldBarcode extends FormLayout {
   }
 
   public interface BarcodePickListener {
-    void pickBarcode(ScanOptions options);
+    void pickBarcode();
   }
 
 }

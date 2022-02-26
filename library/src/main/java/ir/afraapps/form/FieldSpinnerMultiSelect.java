@@ -22,7 +22,6 @@ import ir.afraapps.basic.helper.UMetric;
 
 
 public class FieldSpinnerMultiSelect extends FormLayout {
-  private static final String TAG = FieldSpinnerMultiSelect.class.getSimpleName();
   private TextView txtError;
   private TextView txtTitle;
   private TextView spinnerItem;
@@ -67,9 +66,7 @@ public class FieldSpinnerMultiSelect extends FormLayout {
     this.txtError = this.findViewById(R.id.txt_error);
     this.txtTitle = this.findViewById(R.id.txt_title);
     this.spinnerItem = this.findViewById(R.id.spinner_item);
-    this.spinnerItem.setOnClickListener((v) -> {
-      this.showDialog();
-    });
+    this.spinnerItem.setOnClickListener((v) -> this.showDialog());
     this.adapter = new FieldSpinnerMultiSelect.AdapterMultiSelect(this);
   }
 
@@ -159,6 +156,7 @@ public class FieldSpinnerMultiSelect extends FormLayout {
       this.field = field;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setEntries(CharSequence[] entries) {
       this.entries = entries;
       if (this.values != null) {
@@ -168,6 +166,7 @@ public class FieldSpinnerMultiSelect extends FormLayout {
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setValues(CharSequence[] values) {
       this.values = values;
       if (values != null && values.length > 0) {
@@ -185,6 +184,7 @@ public class FieldSpinnerMultiSelect extends FormLayout {
       return this.value;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setValue(String value) {
       if (!TextUtils.equals(this.value, value)) {
         this.value = value;
@@ -266,9 +266,9 @@ public class FieldSpinnerMultiSelect extends FormLayout {
     }
 
     public static class ViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
-      private ViewGroup parent;
-      private AppCompatCheckBox checkBox;
-      private TextView txtTitle;
+      private final ViewGroup parent;
+      private final AppCompatCheckBox checkBox;
+      private final TextView txtTitle;
 
       ViewHolder(View view) {
         super(view);

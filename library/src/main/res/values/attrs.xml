@@ -74,6 +74,12 @@
     <attr name="formTint" />
   </declare-styleable>
 
+  <declare-styleable name="FieldContentPicker">
+    <attr name="android:hint" />
+    <attr name="formTint" />
+    <attr name="picViewResId" format="reference" />
+  </declare-styleable>
+
   <declare-styleable name="FieldFilePicker">
     <attr name="android:hint" />
     <attr name="formTint" />

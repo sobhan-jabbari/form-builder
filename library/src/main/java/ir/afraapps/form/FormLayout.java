@@ -27,7 +27,7 @@ public abstract class FormLayout extends FrameLayout {
   private String regex;
   private ColorStateList formTint;
   private FormLayout.OnValueChangedListener onValueChangedListener;
-  private AtomicBoolean isFirst;
+  private final AtomicBoolean isFirst;
 
   public FormLayout(@NonNull Context context) {
     super(context, null);

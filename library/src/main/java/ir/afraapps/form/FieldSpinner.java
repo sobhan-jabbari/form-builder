@@ -20,8 +20,6 @@ import androidx.core.view.ViewCompat;
 
 
 public class FieldSpinner extends FormLayout {
-  private static final String TAG = FieldSpinner.class.getSimpleName();
-  private static final boolean D = false;
   private AppCompatSpinner spinner;
   private TextView txtError;
   private TextView txtTitle;
@@ -103,9 +101,7 @@ public class FieldSpinner extends FormLayout {
     this.isPreparingAdapter = true;
     this.adapter = new FieldSpinner.AdapterSpinner(this, this.entries, this.values, this.value);
     this.spinner.setAdapter(this.adapter);
-    this.post(() -> {
-      this.spinner.setSelection(this.adapter.getSelectedPosition());
-    });
+    this.post(() -> this.spinner.setSelection(this.adapter.getSelectedPosition()));
     this.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
       @Override
       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -234,9 +230,9 @@ public class FieldSpinner extends FormLayout {
   }
 
   private static class AdapterSpinner extends BaseAdapter {
-    private CharSequence[] entries;
-    private CharSequence[] values;
-    private CharSequence value;
+    private final CharSequence[] entries;
+    private final CharSequence[] values;
+    private final CharSequence value;
     private final FieldSpinner spinner;
 
     AdapterSpinner(FieldSpinner spinner, CharSequence[] entries, CharSequence[] values, CharSequence value) {
@@ -248,13 +244,10 @@ public class FieldSpinner extends FormLayout {
 
     public int getSelectedPosition() {
       int position = 0;
-      CharSequence[] var2 = this.values;
-
-      for (CharSequence value : var2) {
+      for (CharSequence value : this.values) {
         if (value.equals(this.value)) {
           return position;
         }
-
         ++position;
       }
 

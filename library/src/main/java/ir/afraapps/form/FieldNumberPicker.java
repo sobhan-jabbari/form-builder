@@ -18,8 +18,8 @@ public class FieldNumberPicker extends FormLayout {
   private NumberPicker numberPicker;
   private boolean isScrolling;
   private boolean valueChanged;
-  private NumberPicker.OnValueChangeListener onValueChangeListener;
-  private NumberPicker.OnScrollListener onScrollListener;
+  private final NumberPicker.OnValueChangeListener onValueChangeListener;
+  private final NumberPicker.OnScrollListener onScrollListener;
 
   public FieldNumberPicker(@NonNull Context context) {
     this(context, null, 0);
@@ -63,15 +63,13 @@ public class FieldNumberPicker extends FormLayout {
     this.setMaxValue(maxValue);
     this.numberPicker.setDisplayedValues(this.getDisplayedValues(minValue, maxValue));
     if (this.getValue() != null) {
-      this.numberPicker.setValue(Integer.valueOf(this.getValue()));
+      this.numberPicker.setValue(Integer.parseInt(this.getValue()));
     }
 
   }
 
   private NumberPicker.OnValueChangeListener getOnValueChangedListener() {
-    return (picker, oldVal, newVal) -> {
-      this.valueChanged = true;
-    };
+    return (picker, oldVal, newVal) -> this.valueChanged = true;
   }
 
   private NumberPicker.OnScrollListener getOnScrollListener() {
@@ -97,7 +95,7 @@ public class FieldNumberPicker extends FormLayout {
     int range = max - min + 1;
     String[] displayedValues = new String[range];
 
-    for(int i = 0; i < range; ++i) {
+    for (int i = 0; i < range; ++i) {
       displayedValues[i] = UText.formatNumber(min + i);
     }
 
@@ -149,7 +147,7 @@ public class FieldNumberPicker extends FormLayout {
   }
 
   private boolean isValidNumber() {
-    int number = Integer.valueOf(this.getValue());
+    int number = Integer.parseInt(this.getValue());
     if (this.getMin() > 0 && number < this.getMin()) {
       this.setError(this.getContext().getString(R.string.field_number_invalid_max, UText.formatNumber(this.getMin())));
       return false;

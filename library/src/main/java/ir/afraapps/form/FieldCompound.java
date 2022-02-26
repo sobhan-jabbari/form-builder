@@ -41,9 +41,7 @@ public abstract class FieldCompound extends FormLayout {
       }
 
     });
-    parent.setOnClickListener((v) -> {
-      this.setChecked(!this.isChecked());
-    });
+    parent.setOnClickListener((v) -> this.setChecked(!this.isChecked()));
     if (attrs != null) {
       TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.FieldCompound, defStyleAttr, 0);
       String title = a.getString(R.styleable.FieldCompound_android_hint);

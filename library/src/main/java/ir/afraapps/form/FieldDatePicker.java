@@ -70,9 +70,7 @@ public class FieldDatePicker extends FormLayout implements OnValueChangedListene
     this.txtValue = this.findViewById(R.id.txt_value);
     this.txtError = this.findViewById(R.id.txt_error);
     this.iconView = this.findViewById(R.id.imgIcon);
-    this.findViewById(R.id.parent).setOnClickListener((v) -> {
-      this.prepareDatePicker();
-    });
+    this.findViewById(R.id.parent).setOnClickListener((v) -> this.prepareDatePicker());
   }
 
   private void prepareDatePicker() {

@@ -18,8 +18,6 @@ import ir.afraapps.view.numberpicker.NumberPicker;
 
 
 public class DialogDatePicker extends SheetDialogBase implements View.OnClickListener, NumberPicker.OnValueChangeListener {
-  private static final String TAG = "DialogDatePicker";
-  private static final boolean D = false;
   private NumberPicker yearPicker;
   private NumberPicker monthPicker;
   private NumberPicker dayPicker;
@@ -31,9 +29,7 @@ public class DialogDatePicker extends SheetDialogBase implements View.OnClickLis
   private int maxYear;
   private PersianDate defaultDate;
   private int backgroundColor = -328966;
-
-  public DialogDatePicker() {
-  }
+  
 
   public static void show(FragmentManager fragmentManager, int minYear, int maxYear, PersianDate defaultDate, int backgroundColor, OnValueChangedListener<PersianDate> listener) {
     DialogDatePicker dialog = new DialogDatePicker();

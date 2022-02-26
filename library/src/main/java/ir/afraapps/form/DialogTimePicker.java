@@ -14,7 +14,6 @@ import androidx.fragment.app.FragmentManager;
 
 
 public class DialogTimePicker extends SheetDialogBase implements View.OnClickListener {
-  private static final String TAG = "DialogTimePicker";
   private TimePicker timePicker;
   private OnValueChangedListener<Clock> listener;
   private Clock defaultTime;
@@ -22,8 +21,6 @@ public class DialogTimePicker extends SheetDialogBase implements View.OnClickLis
   private TextView btnCancel;
   private int backgroundColor = -328966;
 
-  public DialogTimePicker() {
-  }
 
   public static void show(FragmentManager fragmentManager, Clock defaultTime, int backgroundColor, OnValueChangedListener<Clock> listener) {
     DialogTimePicker dialog = new DialogTimePicker();

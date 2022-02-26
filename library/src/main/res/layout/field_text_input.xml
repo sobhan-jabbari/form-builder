@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
@@ -20,8 +19,7 @@
     android:padding="4dp"
     android:textColor="?colorAccent"
     android:textSize="12sp"
-    tools:text="title"
-    />
+    tools:text="title" />
 
   <FrameLayout
     android:layout_width="match_parent"
@@ -38,7 +36,9 @@
       android:imeOptions="flagNoFullscreen"
       android:minHeight="56dp"
       android:padding="8dp"
-      app:fontFamily="@font/sans_regular_fd"/>
+      android:importantForAutofill="no"
+      app:fontFamily="@font/sans_regular_fd"
+      tools:ignore="LabelFor" />
 
     <androidx.appcompat.widget.AppCompatImageView
       android:id="@+id/img_password_toggle"
@@ -51,7 +51,7 @@
       android:clickable="true"
       android:focusable="true"
       android:visibility="gone"
-      app:srcCompat="@drawable/ic_vector_visible"/>
+      app:srcCompat="@drawable/ic_vector_visible" />
 
   </FrameLayout>
 
@@ -63,6 +63,6 @@
     android:layout_marginRight="20dp"
     android:padding="2dp"
     android:textColor="@color/errorColor"
-    android:textSize="12sp"/>
+    android:textSize="12sp" />
 
 </LinearLayout>

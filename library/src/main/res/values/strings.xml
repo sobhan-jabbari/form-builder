@@ -1,6 +1,4 @@
 <resources>
-  <string name="app_name">Form</string>
-
   <string name="field_barcode_picker_title">بارکد</string>
   <string name="field_date_picker_title">انتخاب کنید</string>
   <string name="field_file_picker_title">درج فایل</string>

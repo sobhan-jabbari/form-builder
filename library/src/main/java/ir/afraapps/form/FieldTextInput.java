@@ -7,11 +7,9 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.InputFilter;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,15 +32,14 @@ import ir.afraapps.basic.helper.UTypeface;
 
 
 public class FieldTextInput extends FormLayout {
-  private static final String TAG = FieldTextInput.class.getSimpleName();
   private EditText editText;
   private ImageView passwordToggle;
   private TextView txtError;
   private TextView txtTitle;
   private int fieldInputType;
   private int inernalInputType;
-  private List<TextWatcher> listeners;
-  private TextWatcher textWatcher;
+  private final List<TextWatcher> listeners = new ArrayList<>();
+  private final TextWatcher textWatcher;
 
   public FieldTextInput(@NonNull Context context) {
     this(context, null, 0);
@@ -159,29 +156,27 @@ public class FieldTextInput extends FormLayout {
   public void setFieldInputType(int type) {
     int inputType;
     switch (type) {
-      case 0:
-        inputType = 1;
-        break;
-      case 1:
+      case Type.TEXT_PASSWORD:
         inputType = 129;
         break;
-      case 2:
+      case Type.NUMBER_PASSWORD:
         inputType = 18;
         break;
-      case 3:
+      case Type.EMAIL:
         inputType = 33;
         break;
-      case 4:
-      case 7:
+      case Type.PHONE:
+      case Type.MOBILE:
         inputType = 3;
         break;
-      case 5:
-      case 8:
+      case Type.NUMBER:
+      case Type.NUMBER_PURE:
         inputType = 2;
         break;
-      case 6:
+      case Type.TEXT_MULTI_LINE:
         inputType = 131073;
         break;
+      case Type.TEXT:
       default:
         inputType = 1;
     }
@@ -432,35 +427,16 @@ public class FieldTextInput extends FormLayout {
   }
 
   public void addTextChangedListener(TextWatcher listener) {
-    if (this.listeners == null) {
-      this.listeners = new ArrayList();
-    }
-
     this.listeners.add(listener);
   }
 
   public void removeTextChangedListener(TextWatcher listener) {
-    if (this.listeners != null) {
-      int i = this.listeners.indexOf(listener);
-      if (i >= 0) {
-        this.listeners.remove(i);
-      }
+    int i = this.listeners.indexOf(listener);
+    if (i >= 0) {
+      this.listeners.remove(i);
     }
-
   }
 
-  @Override
-  protected void onAttachedToWindow() {
-    super.onAttachedToWindow();
-    if (!this.isInEditMode() && this.editText != null) {
-    }
-
-  }
-
-  @Override
-  protected void onDetachedFromWindow() {
-    super.onDetachedFromWindow();
-  }
 
   private TextWatcher getTextWatcher() {
     return new TextWatcher() {
@@ -588,15 +564,9 @@ public class FieldTextInput extends FormLayout {
     public static final int TEXT_MULTI_LINE = 6;
     public static final int MOBILE = 7;
     public static final int NUMBER_PURE = 8;
-
-    public Type() {
-    }
   }
 
-  class PreventFirstZeroInputFilter implements InputFilter {
-    PreventFirstZeroInputFilter() {
-    }
-
+  /*static class PreventFirstZeroInputFilter implements InputFilter {
     @Override
     public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
       if (source == null) {
@@ -608,10 +578,8 @@ public class FieldTextInput extends FormLayout {
             target.subSequence(1, source.length());
           }
         }
-
-        Log.i("textInput", "filtered text: " + target);
         return target;
       }
     }
-  }
+  }*/
 }

@@ -14,11 +14,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class SheetDialogBase extends AppCompatDialogFragment {
+
+  @Nullable
   private BottomSheetBehavior sheetBehavior;
   private BottomSheetDialog dialog;
 
-  public SheetDialogBase() {
-  }
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class SheetDialogBase extends AppCompatDialogFragment {
       this.sheetBehavior.setHideable(true);
       this.sheetBehavior.setSkipCollapsed(true);
       this.sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-      this.sheetBehavior.setBottomSheetCallback(this.getBottomSheetCallback());
+      this.sheetBehavior.addBottomSheetCallback(this.getBottomSheetCallback());
     });
     return this.dialog;
   }

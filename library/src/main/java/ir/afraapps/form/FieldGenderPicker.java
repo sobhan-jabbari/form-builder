@@ -31,16 +31,12 @@ public class FieldGenderPicker extends FormLayout {
 
   public FieldGenderPicker(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    this.selectedGender = 0;
-    this.init(context, attrs, defStyleAttr);
+    this.init(context);
   }
 
-  private void init(Context context, AttributeSet attrs, int defStyleAttr) {
+  private void init(Context context) {
     this.initViews(context);
-    if (attrs != null) {
-    }
-
-    this.setGender(0);
+    this.setGender(GENDER_UNKNOWN);
   }
 
   private void initViews(Context context) {
@@ -48,15 +44,9 @@ public class FieldGenderPicker extends FormLayout {
     this.viewUnknown = this.findViewById(R.id.lytUnknown);
     this.viewMale = this.findViewById(R.id.lytMale);
     this.viewFemale = this.findViewById(R.id.lytFemale);
-    this.viewUnknown.setOnClickListener((v) -> {
-      this.onValueChanged(0);
-    });
-    this.viewMale.setOnClickListener((v) -> {
-      this.onValueChanged(1);
-    });
-    this.viewFemale.setOnClickListener((v) -> {
-      this.onValueChanged(2);
-    });
+    this.viewUnknown.setOnClickListener((v) -> this.onValueChanged(GENDER_UNKNOWN));
+    this.viewMale.setOnClickListener((v) -> this.onValueChanged(GENDER_MALE));
+    this.viewFemale.setOnClickListener((v) -> this.onValueChanged(GENDER_FEMALE));
   }
 
   public void setGender(int gender) {
@@ -65,7 +55,7 @@ public class FieldGenderPicker extends FormLayout {
   }
 
   public void setGender(@NonNull String gender) {
-    this.setGender(Integer.valueOf(gender));
+    this.setGender(Integer.parseInt(gender));
   }
 
   public int getGender() {
@@ -74,18 +64,18 @@ public class FieldGenderPicker extends FormLayout {
 
   private void setSelectedView(int gender) {
     this.resetSelectedView();
-    switch(gender) {
-      case 0:
+    switch (gender) {
+      case GENDER_UNKNOWN:
         this.viewUnknown.setSelected(true);
         UView.selectViewChildes(this.viewUnknown, true);
         this.selectedView = this.viewUnknown;
         break;
-      case 1:
+      case GENDER_MALE:
         this.viewMale.setSelected(true);
         UView.selectViewChildes(this.viewMale, true);
         this.selectedView = this.viewMale;
         break;
-      case 2:
+      case GENDER_FEMALE:
         this.viewFemale.setSelected(true);
         UView.selectViewChildes(this.viewFemale, true);
         this.selectedView = this.viewFemale;

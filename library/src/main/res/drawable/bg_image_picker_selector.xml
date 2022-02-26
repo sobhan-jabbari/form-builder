@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="?android:colorControlHighlight">
+  <item
+    android:id="@android:id/mask"
+    android:drawable="@drawable/bg_image_picker_normal"/>
+  <item android:drawable="@drawable/bg_image_picker_holo"/>
+</ripple>
 
-  <item android:drawable="@drawable/bg_image_picker_active" android:state_pressed="true" android:state_selected="true"/>
-  <item android:drawable="@drawable/bg_image_picker_normal"/>
-
-</selector>
