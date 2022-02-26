@@ -131,17 +131,11 @@ public class FieldTimePicker extends FormLayout implements OnValueChangedListene
   }
 
   @Override
-  public void setTitle(String title) {
+  public void setTitle(CharSequence title) {
     if (this.txtTitle != null) {
       this.txtTitle.setText(title);
     }
 
-  }
-
-  @Override
-  public void setError(String error) {
-    super.setError(error);
-    this.txtError.setText(error);
   }
 
   @Override
@@ -162,7 +156,7 @@ public class FieldTimePicker extends FormLayout implements OnValueChangedListene
   }
 
   @Override
-  protected String getEmptyError() {
+  protected CharSequence getEmptyError() {
     return this.getContext().getString(R.string.field_picker_time_invalid_required);
   }
 

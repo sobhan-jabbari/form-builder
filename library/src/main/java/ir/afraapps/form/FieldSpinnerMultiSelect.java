@@ -92,13 +92,13 @@ public class FieldSpinnerMultiSelect extends FormLayout {
   }
 
   @Override
-  public void setTitle(String title) {
+  public void setTitle(CharSequence title) {
     super.setTitle(title);
     this.txtTitle.setText(title);
   }
 
   @Override
-  public void setError(String error) {
+  public void setError(CharSequence error) {
     super.setError(error);
     this.txtError.setText(error);
   }
@@ -115,7 +115,7 @@ public class FieldSpinnerMultiSelect extends FormLayout {
   }
 
   @Override
-  protected String getEmptyError() {
+  protected CharSequence getEmptyError() {
     return this.getContext().getString(R.string.field_spinner_invalid_required);
   }
 

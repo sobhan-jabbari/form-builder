@@ -27,7 +27,7 @@ public class FieldCheckBox extends FieldCompound {
   }
 
   @Override
-  protected String getEmptyError() {
+  protected CharSequence getEmptyError() {
     return this.getContext().getString(R.string.field_invalid_required);
   }
 

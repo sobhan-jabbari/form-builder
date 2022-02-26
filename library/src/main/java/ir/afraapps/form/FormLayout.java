@@ -14,16 +14,22 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 public abstract class FormLayout extends FrameLayout {
-  private static final String TAG = "FormLayout";
-  protected static final boolean D = false;
+  @Nullable
   private String oldValue;
+  @Nullable
   private String value;
-  private String title;
-  private String error;
+  @Nullable
+  private CharSequence title;
+  @Nullable
+  private CharSequence hint;
+  @Nullable
+  private CharSequence error;
   private boolean isRequired;
   private int min;
   private int max;
+  @Nullable
   private String color;
+  @Nullable
   private String regex;
   private ColorStateList formTint;
   private FormLayout.OnValueChangedListener onValueChangedListener;
@@ -69,6 +75,7 @@ public abstract class FormLayout extends FrameLayout {
     this.onValueChangedListener = onValueChangedListener;
   }
 
+  @Nullable
   public String getValue() {
     return this.value;
   }
@@ -85,24 +92,31 @@ public abstract class FormLayout extends FrameLayout {
 
   }
 
-  public String getTitle() {
+  @Nullable
+  public CharSequence getTitle() {
     return this.title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@Nullable CharSequence title) {
     this.title = title;
   }
 
-  public String getError() {
+  @Nullable
+  public CharSequence getHint() {
+    return this.hint;
+  }
+
+  public void setHint(@Nullable CharSequence title) {
+    this.title = title;
+  }
+
+  @Nullable
+  public CharSequence getError() {
     return this.error;
   }
 
-  public void setError(String error) {
+  public void setError(@Nullable CharSequence error) {
     this.error = error;
-  }
-
-  public void setError(CharSequence error) {
-    this.error = error == null ? null : error.toString();
   }
 
   public void setError(@StringRes int error) {
@@ -138,19 +152,21 @@ public abstract class FormLayout extends FrameLayout {
     this.max = max;
   }
 
+  @Nullable
   public String getColor() {
     return this.color;
   }
 
-  public void setColor(String color) {
+  public void setColor(@Nullable String color) {
     this.color = color;
   }
 
+  @Nullable
   public String getRegex() {
     return this.regex;
   }
 
-  public void setRegex(String regex) {
+  public void setRegex(@Nullable String regex) {
     this.regex = regex;
   }
 
@@ -181,7 +197,8 @@ public abstract class FormLayout extends FrameLayout {
 
   protected abstract boolean typeValidation();
 
-  protected abstract String getEmptyError();
+  @Nullable
+  protected abstract CharSequence getEmptyError();
 
   public interface OnValueChangedListener {
     void onValueChanged(String var1);

@@ -339,19 +339,9 @@ public class FieldTextInput extends FormLayout {
   }
 
   @Override
-  public void setTitle(String title) {
+  public void setTitle(CharSequence title) {
     super.setTitle(title);
     this.setHint(title);
-  }
-
-  @Override
-  public void setError(String error) {
-    super.setError(error);
-    if (this.txtError != null) {
-      this.txtError.setText(error);
-      this.editText.setActivated(!TextUtils.isEmpty(error));
-    }
-
   }
 
   @Override
@@ -363,6 +353,7 @@ public class FieldTextInput extends FormLayout {
     }
 
   }
+
 
   @Override
   public void setError(@StringRes int error) {
@@ -398,7 +389,7 @@ public class FieldTextInput extends FormLayout {
   }
 
   @Override
-  protected String getEmptyError() {
+  protected CharSequence getEmptyError() {
     return this.getContext().getString(R.string.field_invalid_required);
   }
 

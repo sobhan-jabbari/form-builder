@@ -95,7 +95,7 @@ public abstract class FieldCompound extends FormLayout {
   }
 
   @Override
-  public void setTitle(String title) {
+  public void setTitle(CharSequence title) {
     super.setTitle(title);
     if (this.txtTitle != null) {
       this.txtTitle.setText(title);

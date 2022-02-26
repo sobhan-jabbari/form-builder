@@ -110,7 +110,7 @@ public class FieldGenderPicker extends FormLayout {
   }
 
   @Override
-  protected String getEmptyError() {
+  protected CharSequence getEmptyError() {
     return this.getContext().getString(R.string.field_invalid_required);
   }
 

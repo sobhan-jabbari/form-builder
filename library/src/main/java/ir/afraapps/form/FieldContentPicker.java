@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-abstract class FieldContentPicker extends FormLayout {
+public abstract class FieldContentPicker extends FormLayout {
   private TextView txtTitle;
   private TextView txtContentName;
   private TextView txtError;
@@ -116,16 +116,10 @@ abstract class FieldContentPicker extends FormLayout {
   }
 
   @Override
-  public void setTitle(String title) {
+  public void setTitle(CharSequence title) {
     if (this.txtTitle != null) {
       this.txtTitle.setText(title);
     }
-  }
-
-  @Override
-  public void setError(String error) {
-    super.setError(error);
-    this.txtError.setText(error);
   }
 
   @Override

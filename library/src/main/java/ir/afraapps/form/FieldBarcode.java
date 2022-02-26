@@ -66,16 +66,10 @@ public class FieldBarcode extends FormLayout {
   }
 
   @Override
-  public void setTitle(String title) {
+  public void setTitle(CharSequence title) {
     if (this.txtTitle != null) {
       this.txtTitle.setText(title);
     }
-  }
-
-  @Override
-  public void setError(String error) {
-    super.setError(error);
-    this.txtError.setText(error);
   }
 
   @Override

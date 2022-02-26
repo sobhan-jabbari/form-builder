@@ -134,12 +134,12 @@ public class FieldNumberPicker extends FormLayout {
   }
 
   @Override
-  protected String getEmptyError() {
+  protected CharSequence getEmptyError() {
     return this.getContext().getString(R.string.field_invalid_required);
   }
 
   @Override
-  public void setTitle(String title) {
+  public void setTitle(CharSequence title) {
     if (this.txtTitle != null) {
       this.txtTitle.setText(title);
     }
