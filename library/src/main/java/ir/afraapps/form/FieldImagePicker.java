@@ -18,11 +18,11 @@ public class FieldImagePicker extends FieldContentPicker {
   private CircularImageView imageView;
 
   public FieldImagePicker(@NonNull Context context) {
-    super(context);
+    this(context, null, 0);
   }
 
   public FieldImagePicker(@NonNull Context context, @Nullable AttributeSet attrs) {
-    super(context, attrs);
+    this(context, attrs, 0);
   }
 
   public FieldImagePicker(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
