@@ -7,7 +7,7 @@ group = 'ir.afraapps'
 version = rootProject.appVersionName
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
@@ -88,9 +88,9 @@ afterEvaluate {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.6.1'
 
     api 'com.github.sobhan-jabbari:basic:1.1.36'
     api 'com.github.sobhan-jabbari:jcalendar:1.2.7'

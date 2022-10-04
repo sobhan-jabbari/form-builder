@@ -67,7 +67,7 @@ public abstract class FieldContentPicker extends FormLayout {
   protected abstract void setContentValue(String value, String name);
 
   private void initViews(Context context) {
-    LayoutInflater.from(context).inflate(R.layout.field_file_picker, this, true);
+    LayoutInflater.from(context).inflate(R.layout.field_content_picker, this, true);
     this.txtTitle = this.findViewById(R.id.txt_title);
     this.txtError = this.findViewById(R.id.txt_error);
     this.txtContentName = this.findViewById(R.id.txt_file_name);
