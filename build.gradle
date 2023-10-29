@@ -24,17 +24,17 @@ allprojects {
 }
 
 ext {
-    appVersionCode = 1131
-    appVersionName = '1.1.31'
+    appVersionCode = 1132
+    appVersionName = '1.1.32'
 }
 
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
 
 
-task backup(type: Zip) {
+tasks.register('backup', Zip) {
     from projectDir
     def folders = ['.gradle/**', '.idea/**', 'build/**', 'app/release/**', 'app/build/**', 'app/src/androidTest/**', 'app/src/test/**']
     excludes = folders as Set

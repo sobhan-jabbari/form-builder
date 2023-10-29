@@ -125,10 +125,31 @@ public class FieldSpinnerMultiSelect extends FormLayout {
     if (TextUtils.isEmpty(value)) {
       this.spinnerItem.setText(R.string.field_spinner_title);
     } else {
-      this.spinnerItem.setText(value);
+      this.spinnerItem.setText(toValueTitle(value));
+    }
+    this.adapter.setValue(value);
+  }
+
+
+  private String toValueTitle(String value) {
+    String[] parts = value.split(",");
+    int index = 0;
+    CharSequence[] var4 = this.values;
+    StringBuilder sb = new StringBuilder();
+
+    for (CharSequence v : var4) {
+      for (String part : parts) {
+        if (TextUtils.equals(v, part)) {
+          if (sb.length() > 0) {
+            sb.append(" - ");
+          }
+          sb.append(entries[index]);
+        }
+      }
+      index++;
     }
 
-    this.adapter.setValue(value);
+    return sb.toString();
   }
 
   public CharSequence[] getEntries() {
