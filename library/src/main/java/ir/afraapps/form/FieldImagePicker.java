@@ -5,9 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Base64;
+
+import java.io.File;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -64,6 +66,7 @@ public class FieldImagePicker extends FieldContentPicker {
 
   @Override
   protected void setContentValue(String value, String name) {
+    setContentName(name);
     setValue(value);
   }
 
@@ -78,19 +81,43 @@ public class FieldImagePicker extends FieldContentPicker {
     this.setImage(value);
   }
 
-  private void setImage(@Nullable String base64) {
-    if (!TextUtils.isEmpty(base64)) {
+  public void setImageBitmap(Bitmap bitmap) {
+    if (imageView != null) {
+      this.imageView.setImageBitmap(bitmap);
+      this.imageView.setColor(-3355444);
+    }
+  }
+
+  private void setImage(@Nullable String path) {
+    if (!TextUtils.isEmpty(path)) {
       (new Thread(() -> {
-        byte[] data = Base64.decode(base64, 0);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-        if (bitmap != null) {
+        File file = null;
+        if (path.startsWith("http")) {
+          file = downloadContent(path);
+        } else if (path.startsWith("content")) {
+          file = loadContent(Uri.parse(path));
+        } else if (path.startsWith("file")) {
+          file = new File(path);
+        }
+
+
+        if (file == null || !file.exists()) {
           this.post(() -> {
             if (imageView != null) {
-              this.imageView.setImageBitmap(bitmap);
-              this.imageView.setColor(-3355444);
+              this.imageView.setImageDrawable(null);
+              this.imageView.setColor(Color.TRANSPARENT);
             }
-
           });
+        } else {
+          Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+          if (bitmap != null) {
+            this.post(() -> {
+              if (imageView != null) {
+                this.imageView.setImageBitmap(bitmap);
+                this.imageView.setColor(-3355444);
+              }
+            });
+          }
         }
 
       })).start();

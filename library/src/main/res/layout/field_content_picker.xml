@@ -4,7 +4,6 @@
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:gravity="right|center_vertical"
-  android:layoutDirection="ltr"
   android:orientation="vertical"
   tools:ignore="RtlHardcoded">
 
@@ -42,6 +41,8 @@
 
     <FrameLayout
       android:id="@+id/pic_parent"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content">
 

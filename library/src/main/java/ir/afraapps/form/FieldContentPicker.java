@@ -4,16 +4,17 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -139,42 +140,57 @@ public abstract class FieldContentPicker extends FormLayout {
     return true;
   }
 
+  @Nullable
+  protected File getContent(InputStream inputStream, String fileName) {
+    FileOutputStream outputStream = null;
+    try {
+      File outFile = new File(getContext().getCacheDir(), fileName);
+      outputStream = new FileOutputStream(outFile);
+      byte[] data = new byte[1024 * 4];
+      int count;
+      while ((count = inputStream.read(data)) != -1) {
+        outputStream.write(data, 0, count);
+      }
+      return outFile;
 
-  public void saveContent(Uri uri) {
-    if (uri != null) {
-      (new Thread(() -> {
-        try {
-          InputStream inputStream;
-          String fileName;
-          if ("content".equals(uri.getScheme())) {
-            inputStream = this.getContext().getContentResolver().openInputStream(uri);
-            fileName = uri.getLastPathSegment();
-          } else {
-            File file = new File(uri.getPath());
-            inputStream = new FileInputStream(file);
-            fileName = file.getName();
-          }
+    } catch (Exception e) {
+      return null;
+    } finally {
+      try {
+        outputStream.flush();
+        outputStream.close();
+        inputStream.close();
+      } catch (Exception e) {
+        //
+      }
+    }
+  }
 
-          byte[] data = new byte[inputStream.available()];
-          //noinspection ResultOfMethodCallIgnored
-          inputStream.read(data, 0, data.length);
+  @Nullable
+  protected File loadContent(Uri uri) {
+    try {
+      InputStream inputStream = this.getContext().getContentResolver().openInputStream(uri);
+      String fileName = uri.getLastPathSegment();
+      return getContent(inputStream, fileName);
+    } catch (Exception e) {
+      return null;
+    }
+  }
 
-          try {
-            inputStream.close();
-          } catch (IOException ex) {
-            //
-          }
+  @Nullable
+  protected File downloadContent(String path) {
+    try {
+      HttpURLConnection connection = (HttpURLConnection) new URL(path).openConnection();
+      connection.setDoInput(true);
+      connection.setRequestMethod("GET");
 
-          String base64 = Base64.encodeToString(data, 0);
-          this.post(() -> {
-            this.setError(null);
-            setContentValue(base64, fileName);
-          });
-        } catch (Exception ex) {
-          //
-        }
+      String[] parts = path.split("/");
+      String fileName = parts[parts.length - 1];
+      BufferedInputStream inputStream = new BufferedInputStream(connection.getInputStream());
+      return getContent(inputStream, fileName);
 
-      })).start();
+    } catch (Exception e) {
+      return null;
     }
   }
 
