@@ -22,8 +22,8 @@ allprojects {
     }
 }
 
-val appVersionCode by extra(1134)
-val appVersionName by extra("1.1.34")
+val appVersionCode by extra(1135)
+val appVersionName by extra("1.1.35")
 
 
 task("clean", Delete::class) {
