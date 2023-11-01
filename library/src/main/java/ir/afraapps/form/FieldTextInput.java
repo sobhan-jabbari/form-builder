@@ -28,7 +28,6 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import ir.afraapps.basic.helper.UColor;
 import ir.afraapps.basic.helper.UMetric;
 import ir.afraapps.basic.helper.UText;
-import ir.afraapps.basic.helper.UTypeface;
 
 
 public class FieldTextInput extends FormLayout {
@@ -258,7 +257,7 @@ public class FieldTextInput extends FormLayout {
         switch (event.getAction()) {
           case 0:
             this.editText.setInputType(1);
-            this.editText.setTypeface(UTypeface.get(R.font.sans));
+            // this.editText.setTypeface(UTypeface.get(R.font.sans));
             if (editable.length() > 0) {
               this.editText.setSelection(editable.length());
             }
@@ -266,7 +265,7 @@ public class FieldTextInput extends FormLayout {
           case 1:
           case 3:
             this.editText.setInputType(this.inernalInputType);
-            this.editText.setTypeface(UTypeface.get(R.font.sans));
+            // this.editText.setTypeface(UTypeface.get(R.font.sans));
             if (editable.length() > 0) {
               this.editText.setSelection(editable.length());
             }

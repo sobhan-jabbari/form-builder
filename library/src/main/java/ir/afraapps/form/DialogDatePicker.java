@@ -1,6 +1,5 @@
 package ir.afraapps.form;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import ir.afraapps.basic.helper.UText;
-import ir.afraapps.basic.helper.UTypeface;
 import ir.afraapps.bcalendar.DayOutOfRangeException;
 import ir.afraapps.bcalendar.PersianDate;
 import ir.afraapps.view.numberpicker.NumberPicker;
@@ -29,7 +27,7 @@ public class DialogDatePicker extends SheetDialogBase implements View.OnClickLis
   private int maxYear;
   private PersianDate defaultDate;
   private int backgroundColor = -328966;
-  
+
 
   public static void show(FragmentManager fragmentManager, int minYear, int maxYear, PersianDate defaultDate, int backgroundColor, OnValueChangedListener<PersianDate> listener) {
     DialogDatePicker dialog = new DialogDatePicker();
@@ -70,10 +68,10 @@ public class DialogDatePicker extends SheetDialogBase implements View.OnClickLis
     this.cancelView = root.findViewById(R.id.txt_dialog_date_cancel);
     View sheetView = root.findViewById(R.id.parent);
     sheetView.setBackgroundColor(this.backgroundColor);
-    Typeface typeface = UTypeface.get(R.font.sans_light);
+    /*Typeface typeface = UTypeface.get(R.font.sans_light);
     this.yearPicker.setTypeface(typeface);
     this.monthPicker.setTypeface(typeface);
-    this.dayPicker.setTypeface(typeface);
+    this.dayPicker.setTypeface(typeface);*/
     PersianDate persian = this.defaultDate == null ? new PersianDate() : this.defaultDate;
     this.fillDateTitleView(persian);
     this.yearPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);

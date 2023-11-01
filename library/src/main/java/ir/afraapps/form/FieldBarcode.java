@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import ir.afraapps.basic.helper.UTypeface;
 
 
 public class FieldBarcode extends FormLayout {
@@ -107,7 +106,7 @@ public class FieldBarcode extends FormLayout {
   protected void onAttachedToWindow() {
     super.onAttachedToWindow();
     if (!this.isInEditMode() && this.edtBarcode != null) {
-      this.edtBarcode.setTypeface(UTypeface.get(R.font.sans));
+      // this.edtBarcode.setTypeface(UTypeface.get(R.font.sans));
       this.edtBarcode.addTextChangedListener(this.textWatcher);
     }
 

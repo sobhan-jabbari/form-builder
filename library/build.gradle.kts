@@ -73,6 +73,13 @@ afterEvaluate {
             }
 
         }
+
+        repositories {
+            maven {
+                name = "afraapps"
+                url = uri("${project.layout.buildDirectory}/afraapps")
+            }
+        }
     }
 }
 
@@ -87,8 +94,7 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.google.android.material:material:1.10.0")
 
-    api("com.github.sobhan-jabbari:basic:1.1.36")
-    api("com.github.sobhan-jabbari:jcalendar:1.2.7")
-    api("com.github.sobhan-jabbari:gviews:1.1.26")
-    api("com.github.sobhan-jabbari:number-picker:1.1.26")
+    implementation("com.github.sobhan-jabbari:jcalendar:1.2.7")
+    implementation("com.github.sobhan-jabbari:gviews:1.1.26")
+    implementation("com.github.sobhan-jabbari:number-picker:1.1.26")
 }
